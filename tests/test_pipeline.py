@@ -7,10 +7,12 @@ from pathlib import Path
 
 import numpy as np
 
+REPO = Path(__file__).resolve().parents[1]
+if str(REPO) not in sys.path:
+    sys.path.insert(0, str(REPO))
+
 from utils import LANDMARK_DIM, normalize_landmarks
 
-
-REPO = Path(__file__).resolve().parents[1]
 
 
 def test_normalize_landmarks_shape_and_scale() -> None:

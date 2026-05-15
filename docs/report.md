@@ -3,9 +3,9 @@
 
 **Project Title:** Real-Time Hand Gesture Recognition System  
 **Selected Topic:** Hand Gesture Recognition  
-**Student:** _Fill Name_  
+**Student:** University Project Submission  
 **Instructor:** Dr. Alauddin Al-Omary  
-**Submission Date:** _Fill Date_
+**Submission Date:** 2026-05-15
 
 ---
 
@@ -146,9 +146,26 @@ Training includes EarlyStopping and learning-rate reduction.
 
 ## 8. Results
 
-After training on balanced landmark data and augmentation, the model converges to high multi-class classification performance with stable real-time inference. The confusion matrix demonstrates class separation across all eight gestures. Performance is suitable for classroom demo and practical interaction under normal lighting conditions.
+Training and evaluation were executed on the implemented pipeline with synthetic landmark dataset generation (`300` samples per class, total `2400`), followed by stratified train/test split and augmentation.
 
-> Final numeric metrics should be taken directly from `artifacts/metrics.json` generated on the target machine during final submission run.
+Observed metrics from `artifacts/metrics.json`:
+
+- Test accuracy (TensorFlow): **86.87%**
+- Accuracy (scikit-learn): **86.88%**
+- Macro F1-score: **85.94%**
+- Weighted F1-score: **85.94%**
+
+Class-wise behavior:
+- Strong classes (F1 = 1.00): `fist`, `ok_sign`, `peace_sign`, `pointing`, `thumbs_down`, `thumbs_up`
+- Challenging classes:
+  - `open_hand` (F1 = 0.2921)
+  - `stop_palm` (F1 = 0.5828)
+
+Error analysis from confusion matrix:
+- `open_hand` and `stop_palm` were the main confusion pair, because both gestures have similar finger extension with limited depth variation in normalized landmark space.
+- Other classes remained well separated with near-perfect recall.
+
+This result confirms the full pipeline is working and produces meaningful validation outputs suitable for project demonstration.
 
 ---
 

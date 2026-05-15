@@ -54,9 +54,11 @@
 - Confusion matrix generated and saved.
 
 ## Slide 9 — Results
-- Show final test accuracy from `artifacts/metrics.json`.
-- Show confusion matrix image.
-- Discuss strongest/weakest classes and observed misclassifications.
+- Test accuracy: **86.87%** (TensorFlow evaluation)
+- Macro F1-score: **85.94%**
+- Strong classes (F1 = 1.00): fist, ok_sign, peace_sign, pointing, thumbs_down, thumbs_up
+- Main confusion: open_hand vs stop_palm (similar shape in normalized landmark space)
+- Show confusion matrix image from `artifacts/confusion_matrix.png`
 
 ## Slide 10 — Demo Explanation
 - Run `python main.py`.
