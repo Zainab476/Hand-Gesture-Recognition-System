@@ -49,6 +49,21 @@ Hand-gesture-recognition/
 
 ## 3) Installation and Environment Setup
 
+### Quick start on this workspace
+
+If you are using the validated Windows workspace Python, install requirements with:
+
+```powershell
+D:/000000_coding-night_practices/coding-night_practice_23-11-2024/python_ml/python.exe -m pip install -r requirements.txt
+```
+
+Then run tests and the demo with:
+
+```powershell
+D:/000000_coding-night_practices/coding-night_practice_23-11-2024/python_ml/python.exe -m pytest -q
+D:/000000_coding-night_practices/coding-night_practice_23-11-2024/python_ml/python.exe main.py --model artifacts_test/gesture_model.keras --scaler artifacts_test/scaler.pkl --encoder artifacts_test/label_encoder.pkl
+```
+
 ### Option A: VS Code / Terminal (recommended)
 
 ```bash
@@ -67,6 +82,8 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+In VS Code, you can also use the bundled launch profile **Run Hand Gesture Recognition** or the matching task in [.vscode/tasks.json](.vscode/tasks.json).
+
 ### Option B: PyCharm
 
 1. Open project folder in PyCharm.
@@ -78,6 +95,7 @@ pip install -r requirements.txt
 - Python 3.10+ recommended.
 - Webcam for real-time demo mode.
 - Packages listed in `requirements.txt`.
+- `mediapipe==0.10.14` is pinned for `mp.solutions` compatibility with `main.py`.
 
 ## 5) Dataset Handling
 
@@ -126,6 +144,8 @@ Applied on training split:
 
 ## 6) Model Training
 
+For a fast smoke test, the repository includes a synthetic dataset flow verified by the automated tests.
+
 ```bash
 python train.py \
   --dataset data/processed/gesture_landmarks.csv \
@@ -147,6 +167,12 @@ Training outputs:
 
 ```bash
 python main.py --camera-index 0
+```
+
+If the model artifacts were created in `artifacts_test`, use the validated command below:
+
+```powershell
+D:/000000_coding-night_practices/coding-night_practice_23-11-2024/python_ml/python.exe main.py --model artifacts_test/gesture_model.keras --scaler artifacts_test/scaler.pkl --encoder artifacts_test/label_encoder.pkl
 ```
 
 Expected display:
