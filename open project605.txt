@@ -1,0 +1,68 @@
+Daily Steps to Run the Project
+1. Open VS Code
+
+Open the folder:
+
+project 605 isa
+2. Open Terminal
+
+In VS Code:
+
+Terminal → New Terminal
+3. Activate the Virtual Environment
+
+Run:
+
+.venv\Scripts\activate
+
+You should see:
+
+(.venv) C:\Users\alsha\OneDrive\Desktop\MackMoney\project 605 isa>
+4. Verify Python Version (Optional)
+
+Run:
+
+python --version
+
+Expected:
+
+Python 3.11.9
+5. Run the Application
+
+Run:
+
+python main.py
+
+The webcam window should open and hand gesture recognition will start.
+
+6. Exit the Program
+
+Press:
+
+Q
+
+(or close the webcam window).
+
+Only If You Change the Model
+
+You only need these steps when you modify the dataset or model:
+
+Recreate Dataset
+python dataset_creator.py --mode synthetic --output data/processed/gesture_landmarks.csv --samples-per-class 400
+Retrain Model
+python train.py --dataset data/processed/gesture_landmarks.csv --artifacts-dir artifacts --epochs 40 --batch-size 32
+
+After retraining, run:
+
+python main.py
+Super Short Version
+
+Every day:
+
+cd "C:\Users\alsha\OneDrive\Desktop\MackMoney\project 605 isa"
+.venv\Scripts\activate
+python main.py
+
+That's it. 🚀
+
+For your course presentation, I would also keep a small text file called RUN_PROJECT.txt in the project folder with these three commands so you can start the project quickly during demos or interviews.
