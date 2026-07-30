@@ -1,4 +1,4 @@
-# Hand Gesture Recognition (ITML605 Final Project)
+# Hand Gesture Recognition 
 
 A complete university-grade **real-time Hand Gesture Recognition System** for Robotics and Computer Vision using **Python, OpenCV, MediaPipe, TensorFlow, NumPy, Scikit-learn, and Matplotlib**.
 
